@@ -1,3 +1,2 @@
-export * from './removeObjectKeys'
-export * from './toggleArrItem'
-export * from './typeChecking'
+export * from './hooks'
+export * from './utils'
