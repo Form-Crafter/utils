@@ -10,6 +10,6 @@ export type PartialIfUndefined<T extends object> = {
     [K in keyof T as K extends RequiredKeys<T> ? K : never]: T[K]
 }
 
-export type NotUndefinebleKey<T extends Record<string, unknown>, O extends keyof T> = {
+export type NonUndefinableKey<T extends Record<string, unknown>, O extends keyof T> = {
     [K in keyof T]: K extends O ? Exclude<T[K], undefined> : T[K]
 }
