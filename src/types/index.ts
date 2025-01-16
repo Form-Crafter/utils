@@ -12,6 +12,8 @@ export type OptionalIfUndefined<T extends SomeObject> = {
     [K in keyof T as K extends RequiredKeys<T> ? K : never]: T[K]
 }
 
+export type Undefinable<T> = T | undefined
+
 export type NonUndefinableKey<T extends SomeObject, O extends keyof T> = {
     [K in keyof T]: K extends O ? Exclude<T[K], undefined> : T[K]
 }
