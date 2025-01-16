@@ -12,10 +12,16 @@ export type OptionalIfUndefined<T extends SomeObject> = {
     [K in keyof T as K extends RequiredKeys<T> ? K : never]: T[K]
 }
 
+export type NonUndefinable<T> = T extends undefined ? never : T
+
 export type Undefinable<T> = T | undefined
 
+export type Nullable<T> = T | null
+
+export type Maybe<T> = Undefinable<T> | Nullable<T>
+
 export type NonUndefinableKey<T extends SomeObject, O extends keyof T> = {
-    [K in keyof T]: K extends O ? Exclude<T[K], undefined> : T[K]
+    [K in keyof T]: K extends O ? NonUndefinable<T[K]> : T[K]
 }
 
 export type Unwrap<T> = T extends object ? { [K in keyof T]: T[K] } : T
