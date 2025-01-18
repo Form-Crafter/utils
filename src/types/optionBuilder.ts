@@ -2,4 +2,4 @@ export interface OptionBuilder<Output> {
     __outputType: Output
 }
 
-export type BuilderOutput<T extends OptionBuilder<any>> = T['__outputType']
+export type OptionBuilderOutput<T extends OptionBuilder<any>> = T['__outputType']
